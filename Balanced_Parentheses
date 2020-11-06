@@ -1,0 +1,25 @@
+//problem: https://www.codewars.com/kata/5426d7a2c2c7784365000783/train/java
+
+import java.util.*;
+
+public class BalancedParens {
+    
+    static List<String> output;
+    static int N;
+    
+    public static List <String> balancedParens (int n) {
+        output = new ArrayList<String>();
+        N = n;
+        constructList(0,0,"");
+        return output;
+    }
+  
+    public static void constructList (int x, int y, String s) {
+        if(x==N && y==N) output.add(s);
+        else 
+        {
+          if(x!=N) constructList(x+1, y, s+"(");
+          if(x!=y) constructList(x, y+1, s+")");
+        }
+    }
+}
