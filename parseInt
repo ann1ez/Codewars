@@ -1,0 +1,32 @@
+public class Parser {
+    
+    public static int parseInt(String numStr) {
+        String[] words = numStr.split("\\s|-");
+        int output = 0;
+        int place = 1;
+        
+        for(int i=words.length-1; i>-1; i--) 
+        {
+          if(words[i].equals("million")) place = 1000000;
+          if(words[i].equals("thousand")) place = 1000;
+          if(words[i].equals("hundred")) place *= 100;
+          
+          output += check(words[i]) * place;
+        }
+        return output;
+    }
+    
+    public static int check(String w) {
+    String[] ones = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    String[] tens = {"", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
+    String[] teens = {"", "eleven", "twelve", "thirteen", "fourteen", "fifteen" , "sixteen", "seventeen","eighteen", "nineteen"};
+    for(int i=0; i<10; i++)
+    {
+      if(ones[i].equals(w)) return i;
+      if(tens[i].equals(w)) return i*10;
+      if(teens[i].equals(w)) return i+10;
+    }
+    
+    return 0;
+  }
+}
