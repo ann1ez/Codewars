@@ -1,2 +1,2 @@
-# Codewars
-My codewars practice problem solutions.
+# Practice problems
+My practice problem solutions.
