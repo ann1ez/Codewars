@@ -1,7 +1,4 @@
-
-//problem: https://www.codewars.com/kata/52c4dd683bfd3b434c000292
-
-public class CarMileage {
+public class Mileage {
 
   public static int isInteresting(int number, int[] awesomePhrases) {
     if(number < 98) return 0;
